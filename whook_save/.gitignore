@@ -1,0 +1,18 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Mac custom attributes file (Desktop Service Store)
+.DS_Store
+
+# PyCharm files
+.idea/
+
+# Angular node_modules directory
+client/node_modules
+
+# Environment variable
+.env
+
+./server/main/api/log

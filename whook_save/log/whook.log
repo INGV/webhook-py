@@ -1,0 +1,71 @@
+[2021-05-17 12:46:54.482] - INFO: Server Started
+[2021-05-17 12:47:03.255] - INFO: GET METHOD RECEIVED. PARAMS ARE: pippo=1
+[2021-05-17 12:47:19.180] - INFO: GET METHOD RECEIVED. PARAMS ARE: pippo=1
+[2021-05-17 12:47:20.541] - INFO: GET METHOD RECEIVED. PARAMS ARE: pippo=1
+[2021-05-17 12:47:40.184] - INFO: POST METHOD RECEIVED. BODY IS: 
+{
+    "gustavo": {
+        "carlo": "fufu",
+        "gigi": 1
+    },
+    "me": "xyz",
+    "password": "xyz"
+}
+[2021-05-17 12:47:43.754] - INFO: POST METHOD RECEIVED. BODY IS: 
+{
+    "gustavo": {
+        "carlo": "fufu",
+        "gigi": 1
+    },
+    "me": "xyz",
+    "password": "xyz"
+}
+[2021-05-17 12:47:44.439] - INFO: POST METHOD RECEIVED. BODY IS: 
+{
+    "gustavo": {
+        "carlo": "fufu",
+        "gigi": 1
+    },
+    "me": "xyz",
+    "password": "xyz"
+}
+[2021-05-17 12:47:45.688] - INFO: POST METHOD RECEIVED. BODY IS: 
+{
+    "gustavo": {
+        "carlo": "fufu",
+        "gigi": 1
+    },
+    "me": "xyz",
+    "password": "xyz"
+}
+[2021-05-17 12:47:49.217] - INFO: POST METHOD RECEIVED. BODY IS: 
+{
+    "gustavo": {
+        "carlo": "fufu",
+        "gigi": 1
+    },
+    "me": "xyz",
+    "password": "xyz"
+}
+[2021-05-17 12:48:14.948] - INFO: GET METHOD RECEIVED. PARAMS ARE: pippo=1
+[2021-05-17 12:48:22.709] - INFO: GET METHOD RECEIVED. PARAMS ARE: pippo=1
+[2021-05-17 12:49:49.153] - INFO: GET METHOD RECEIVED. PARAMS ARE: pippo=aaaaaa
+[2021-05-17 12:50:01.405] - INFO: GET METHOD RECEIVED. PARAMS ARE: pippo=aaaaaa
+[2021-05-17 12:50:15.130] - INFO: GET METHOD RECEIVED. PARAMS ARE: pippo=aaaaaa
+[2021-05-17 12:55:47.142] - INFO: GET METHOD RECEIVED. PARAMS ARE: pippo=aaaaaa; gigi=1
+[2021-05-17 12:56:01.436] - INFO: GET METHOD RECEIVED. PARAMS ARE: pippo=aaaaaa; gigi=1; gustavo=tarallero
+[2021-05-18 09:18:04.991] - INFO: Server Started
+[2021-05-18 09:20:05.461] - INFO: Server Started
+[2021-05-18 09:21:10.072] - INFO: GET METHOD RECEIVED. PARAMS ARE: param1=test; param2=2; param3=hello
+[2021-05-18 09:21:18.606] - INFO: GET METHOD RECEIVED. PARAMS ARE: param1=test; param2=2; param3=hello
+[2021-05-18 09:21:56.580] - INFO: GET METHOD RECEIVED. PARAMS ARE: param1=test; param2=2; param3=hello
+[2021-05-18 09:22:02.573] - INFO: GET METHOD RECEIVED. PARAMS ARE: param1=test; param2=2; param3=hello
+[2021-05-18 09:22:30.063] - INFO: POST METHOD RECEIVED. BODY IS: 
+{
+    "key1": {
+        "key2": 1,
+        "key3": "test"
+    },
+    "key4": "xyz",
+    "key5": "xyz"
+}

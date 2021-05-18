@@ -1,0 +1,31 @@
+# Run docker-compose build
+# Run docker-compose up
+
+version: '2'
+
+services:
+  nginx_whook:
+    container_name: nginx_whook_container
+    restart: always
+    image: nginx_whook
+    build:
+      context: .
+      dockerfile: nginx/Dockerfile
+    volumes:
+     - ./client/dist:/usr/share/nginx/html
+    ports:
+      - "8088:8088"
+      - "443:443"
+    depends_on:
+      - flask_whook
+
+  flask_whook:
+    container_name: flask_whook_container
+    restart: always
+    image: flask_whook
+    build: ./server
+    volumes:
+    - ./server:/usr/src/app/server
+    - ./log:/usr/src/app/log
+    env_file:
+     - .env
