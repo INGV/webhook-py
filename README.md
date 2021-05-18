@@ -19,9 +19,9 @@
 
 This project implement a web hook that exposes two generic web services, respectively: GET and POST.
 
-The first echoes, on the stdout and on a log file (`<project-root>/log/whook.log`), the received parameters, as couples of `name=value`
+The first one echoes, on the stdout and on a log file (`<project-root>/log/whook.log`), the received parameters, as couples of `name=value`
 
-The second echoes, on the stdout and on the log, file the received `json data`
+The second one echoes, on the stdout and on the log, file the received `json data`
 
 - The project structure supports multiple development environments with the usage of `.env` variable and `docker.compose.yml` files.
 - Designed for organizing large scale application structure. With the usage of `Blueprints`, `application factory` and different configs.
@@ -89,7 +89,7 @@ The request from an external user hits the *nginx* web server on port 8088 (conf
   - `docker-compose up`
   - *OR* just run one command: `docker-compose -f docker-compose.yml up --build`
 
-- Fom command line execute some example commands like, for example:
+- From command line execute some example commands like, for example:
 
   ```
   curl http://localhost:8088/api/get?param1=test\&param2=2\&param3=hello
@@ -99,4 +99,5 @@ The request from an external user hits the *nginx* web server on port 8088 (conf
   curl --header "Content-Type: application/json" --request POST --data '{"key1": {"key2": 1, "key3": "test"}, "key4":"xyz","key5":"xyz"}' http://localhost:8088/api/post
   ```
 
-  
+- Then, see the echo printed on the log file: `<project-root>/log/whook.log`
+
