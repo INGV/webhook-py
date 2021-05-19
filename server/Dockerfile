@@ -6,6 +6,7 @@ ENV PYTHONUNBUFFERED 1
 
 RUN mkdir -p /usr/src/app
 RUN mkdir -p /usr/src/app/log
+RUN chmod 777 /usr/src/app/log
 
 # Update working directory
 WORKDIR /usr/src/app
@@ -15,7 +16,6 @@ COPY . /usr/src/app/
 
 # Give execute permission to below file, so that the script can be executed by docker.
 RUN chmod 777 /usr/src/app/entrypoint.sh
-RUN chmod -R 777 /usr/src/app/log
 
 # Install the Python libraries
 RUN pip install --no-cache-dir -r requirements.txt
