@@ -83,13 +83,31 @@ The request from an external user hits the *nginx* web server on port 8088 (conf
   git clone https://gitlab.rm.ingv.it/uf-so/whook
   ```
 
-- Then, from project root,  execute following commands:
+- Move to the project folder 
+
+  ```
+  cd whook
+  ```
+
+- Copy the .env file:
+
+  ```
+  - cp .env_template .env
+  ```
+
+- Create the log folder
+
+  ```
+  - mkdir -m 777 log
+  ```
+
+- Build the images and start the containers:
 
   - `docker-compose build`
   - `docker-compose up`
   - *OR* just run one command: `docker-compose -f docker-compose.yml up --build`
 
-- From command line execute some example commands like, for example:
+- Do some test requests:
 
   ```
   curl http://localhost:8088/api/get?param1=test\&param2=2\&param3=hello
@@ -99,5 +117,5 @@ The request from an external user hits the *nginx* web server on port 8088 (conf
   curl --header "Content-Type: application/json" --request POST --data '{"key1": {"key2": 1, "key3": "test"}, "key4":"xyz","key5":"xyz"}' http://localhost:8088/api/post
   ```
 
-- Then, see the echo printed on the log file: `<project-root>/log/whook.log`
+- See the echo printed on the log file: `<project-root>/log/whook.log`
 
