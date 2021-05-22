@@ -101,7 +101,11 @@ The request from an external user hits the *nginx* web server on port 8088 (conf
   - mkdir -m 777 log
   ```
 
-  *Note: the log path is not configurable. You must change  it in the file* `docker-compose.yml`. May be it's better to make a soft link if you want to point to the log from somewhere else
+  *Note: If you want to change the log folder path, You need to modify the following line in the file * `docker-compose.yml`:
+
+  ```
+  - ./log:/usr/src/app/log
+  ```
 
 - Build the images and start the containers:
 
