@@ -1,5 +1,6 @@
 from contextlib import closing
 import json
+from server.main import logger
 
 from datetime import date, time, datetime, timedelta
 from server.settings import config
@@ -12,8 +13,8 @@ class Queries(object):
         elif isinstance(o, (date, time)):
             return o.__str__()
 
-    def __init__(self, logger):
-        self.logger = logger
+    def __init__(self):
+        pass
 
     def get_webhook(self, args):
         msg = 'GET METHOD RECEIVED. PARAMS ARE: '
@@ -24,12 +25,12 @@ class Queries(object):
 
         msg = 'GET METHOD RECEIVED. PARAMS ARE: ' + '; '.join(params)
 
-        self.logger.info(msg)
+        logger.info(msg)
         return True
 
 
     def post_webhook(self, body):
         msg = 'POST METHOD RECEIVED. BODY IS: \n' + \
               json.dumps(body, indent=4, sort_keys=True)
-        self.logger.info(msg)
+        logger.info(msg)
         return True

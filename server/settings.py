@@ -16,10 +16,12 @@ class Config(object):
     TESTING = False
     LOG_SEVERITY = 'INFO'
     LOG_FOLDER = '/usr/src/app/log'
+
 class DevelopmentConfig(Config):
     """ Dev environment config options """
     FLASK_ENV='development'
     DEBUG = True
+    LOG_FOLDER = './log'
     LOG_SEVERITY = 'DEBUG'
     PROFILE = True
 
@@ -29,6 +31,7 @@ class TestingConfig(Config):
     STAGING = True
     TESTING = True
     LOG_FOLDER = './log'
+    LOG_SEVERITY = 'DEBUG'
 
 
 class ProductionConfig(Config):
