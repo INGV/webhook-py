@@ -20,7 +20,7 @@ def test():
 
 @route.route('/api/get', methods=["GET"])
 def get():
-    retval = queries.get_webhook(request.args)
+    queries.get_webhook(request.args)
     result = (Response('GET-OK', content_type='application/text'), status.HTTP_200_OK)
     return result
 
@@ -28,7 +28,7 @@ def get():
 @route.route('/api/post', methods=["POST"])
 def post():
     body = request.get_json(force=True)
-    retval = queries.post_webhook(body)
+    queries.post_webhook(body)
     result = (Response('POST-OK', content_type='application/text'), status.HTTP_200_OK)
     return result
 

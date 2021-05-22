@@ -1,9 +1,6 @@
-from contextlib import closing
 import json
 from server.main import logger
-
-from datetime import date, time, datetime, timedelta
-from server.settings import config
+from datetime import date, time, datetime
 
 class Queries(object):
     @staticmethod
@@ -17,7 +14,6 @@ class Queries(object):
         pass
 
     def get_webhook(self, args):
-        msg = 'GET METHOD RECEIVED. PARAMS ARE: '
 
         params = []
         for key, value in args.items():
