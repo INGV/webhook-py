@@ -34,10 +34,11 @@ def create_logger(app_settings):
     handler.setFormatter(formatter)
     logger.addHandler(handler)
 
-    if not os.path.isdir(app_settings.LOG_FOLDER):
-        os.makedirs(app_settings.LOG_FOLDER, 493)
+    log_folder = './log'
+    if not os.path.isdir(log_folder):
+        os.makedirs(log_folder, 493)
 
-    log_file_name = os.path.join(app_settings.LOG_FOLDER, 'whook.log')
+    log_file_name = os.path.join(log_folder, 'whook.log')
     f_handler = logging.handlers.RotatingFileHandler(log_file_name, maxBytes=1000000, backupCount=10)
     f_handler.setLevel(numeric_level)
     f_handler.setFormatter(formatter)

@@ -15,13 +15,11 @@ class Config(object):
     SECRET_KEY = os.urandom(24)
     TESTING = False
     LOG_SEVERITY = 'INFO'
-    LOG_FOLDER = '/usr/src/app/log'
 
 class DevelopmentConfig(Config):
     """ Dev environment config options """
     FLASK_ENV='development'
     DEBUG = True
-    LOG_FOLDER = './log'
     LOG_SEVERITY = 'DEBUG'
     PROFILE = True
 
@@ -30,9 +28,7 @@ class TestingConfig(Config):
     DEBUG = True
     STAGING = True
     TESTING = True
-    LOG_FOLDER = './log'
     LOG_SEVERITY = 'DEBUG'
-
 
 class ProductionConfig(Config):
     """ Prod environment config options """
