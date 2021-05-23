@@ -125,3 +125,11 @@ The request from an external user hits the *nginx* web server on port 8088 (conf
 
 - See the echo printed on the log file: `<project-root>/log/whook.log`
 
+- For swagger documentation check:
+
+  ```
+  http://localhost:8088/swagger-ui/dist/
+  ```
+
+  
+
