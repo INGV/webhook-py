@@ -68,7 +68,7 @@ $ cp .env_template .env
 
 then, starts containers:
 ```
-$ docker-compose up
+$ docker-compose up -d
 ```
 
 ### Test the application
