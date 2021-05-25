@@ -116,11 +116,11 @@ The request from an external user hits the *nginx* web server on port 8088 (conf
 - Do some test requests:
 
   ```
-  curl http://localhost:8088/api/get?param1=test\&param2=2\&param3=hello
+  curl http://localhost:8088/api/whook?param1=test\&param2=2\&param3=hello
   ```
 
   ```
-  curl --header "Content-Type: application/json" --request POST --data '{"key1": {"key2": 1, "key3": "test"}, "key4":"xyz","key5":"xyz"}' http://localhost:8088/api/post
+  curl --header "Content-Type: application/json" --request POST --data '{"key1": {"key2": 1, "key3": "test"}, "key4":"xyz","key5":"xyz"}' http://localhost:8088/api/whook
   ```
 
 - See the echo printed on the log file: `<project-root>/log/whook.log`

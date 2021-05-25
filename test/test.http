@@ -1,0 +1,16 @@
+POST http://localhost:8088/api/whook
+Content-Type: application/json
+
+{
+    "my_key": {
+      "foo": "bar",
+      "hello": null
+    },
+    "other": -69.007,
+    "again": 39.5403,
+    "sample": "value"
+}
+
+###
+GET http://localhost:8088/api/whook?foo=bar&hello=ciao
+

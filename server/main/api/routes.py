@@ -14,21 +14,20 @@ cors = CORS(route, resources={r"/*": {"origins": "*"}})
 
 queries = Queries()
 
-@route.route('/api/test', methods=["GET"])
-def test():
-    return 'test OK!!'
+# @route.route('/api/test', methods=["GET"])
+# def test():
+#     return 'test OK!!'
 
-@route.route('/api/get', methods=["GET"])
+@route.route('/api/whook', methods=["GET"])
 def get():
-    queries.get_webhook(request.args)
-    result = (Response('GET-OK', content_type='application/text'), status.HTTP_200_OK)
+    result_struct, status = queries.get_webhook(request.args)
+    result = (Response(result_struct, content_type='application/json'), status)
     return result
 
 
-@route.route('/api/post', methods=["POST"])
+@route.route('/api/whook', methods=["POST"])
 def post():
     body = request.get_json(force=True)
-    queries.post_webhook(body)
-    result = (Response('POST-OK', content_type='application/text'), status.HTTP_200_OK)
+    result_struct, status = queries.post_webhook(body)
+    result = (Response(result_struct, content_type='application/json'), status)
     return result
-
