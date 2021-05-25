@@ -93,7 +93,7 @@ curl http://localhost:8088/api/get?param1=test&param2=2&param3=hello
 curl --header "Content-Type: application/json" --request POST --data '{"key1": {"key2": 1, "key3": "test"}, "key4":"xyz","key5":"xyz"}' http://localhost:8088/api/post
 ```
 
-Check the lines into the log file: `<project-root>/log/whook.log`
+Check the lines into the log file: `./log/whook.log`
 
 ## Swagger spec (Work In Progess)
 For swagger documentation check:
