@@ -70,6 +70,17 @@ then, starts containers:
 ```
 $ docker-compose up -d
 ```
+---
+To stop the containers:
+```
+$ docker-compose stop
+```
+
+To stop and remove the containers:
+```
+$ docker-compose down
+```
+
 
 ### Test the application
 **1) `GET` method**
