@@ -1,28 +1,11 @@
-<!-- - START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+# whook
 
-- [1. Introduction](#1-introduction)
-  - [Project Components (Directory Structure)](#project-components-directory-structure)
-    - [client](#client)
-    - [nginx](#nginx)
-    - [server](#server)
-    - [Environment variable](#environment-variable)
-    - [docker-compose.yml](#docker-composeyml)
-  - [Architecture](#architecture)
-    - [Working](#working)
-  - [Usage](#usage)
+## Introduction
+This project implement a web hook that exposes two generic web services, respectively: `GET` and `POST`.
+- The first one echoes, on the stdout and on a log file (`<project-root>/log/whook.log`), the received parameters, as couples of `name=value`
+- The second one echoes, on the stdout and on the log, file the received `json data`
 
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
-# 1. Introduction #
-
-This project implement a web hook that exposes two generic web services, respectively: GET and POST.
-
-The first one echoes, on the stdout and on a log file (`<project-root>/log/whook.log`), the received parameters, as couples of `name=value`
-
-The second one echoes, on the stdout and on the log, file the received `json data`
-
+Main features:
 - The project structure supports multiple development environments with the usage of `.env` variable and `docker.compose.yml` files.
 - Designed for organizing large scale application structure. With the usage of `Blueprints`, `application factory` and different configs.
 - Reverse proxy using `nginx`.
@@ -35,31 +18,23 @@ It is built with following components:
 - Docker - Usage of Docker Compose to build and host the application.
 
 
-
 ## Project Components (Directory Structure)
-
 ### client
-
 This directory holds swagger-ui documentation
 
 ### nginx
-
 This directory holds the nginx config file and Dockerfile for running the nginx container. This container serves swagger documentation and also passes request to backend.
 
 ### server
-
 This directory contains the server side code. It hosts the **Flask** app and other configs and settings files required by the backend. It also has Dockerfile for running the flask container. This container hosts the backend code
 
 ### Environment variable
-
 A simple `.env` file to set the environment variables for Flask. We can have multiple versions of this file for different environments.
 
-### docker-compose.yml
-
+### `docker-compose.yml`
 This file is used by the Docker to create the containers and run your app. We can have multiple versions of this file for different environments.
 
 ## Architecture
-
 For this seed project, are used 2 Docker containers:
 
 - NGINX - Web Server
@@ -68,68 +43,66 @@ For this seed project, are used 2 Docker containers:
 The two components are created from Docker images that expand on the respective official images from Docker Hub. Each of these images are built using separate Dockerfiles. Docker Compose is then used to create the two containers and connect them correctly into a unified application
 
 ### Working
-
 The request from an external user hits the *nginx* web server on port 8088 (configurable). Depending on the **URL**, the request is served using locally or it is sent to Flask web application. In this app, all request URL starting with */api* is sent to Flask web service. The Flask docker container is also running and it exposes port 5000. These setting are defined in *nginx.conf* file. In this way, nginx is aware of both Frontend and Backend services. 
 
-
-
 ## Usage
+**NOTE**: Make sure you have `docker` installed
 
-**NOTE**: Make sure you have Docker
+### Clone the git repository 
+Clone the git repositry:
+```
+$ git clone https://gitlab.rm.ingv.it/ingv-virgo/whook
+$ cd whook
+```
 
-- Clone this repository: 
+### Build docker images
+```
+$ docker-compose build
+```
 
-  ```
-  git clone https://gitlab.rm.ingv.it/uf-so/whook
-  ```
+### Run containers
+First, copy environment file:
+```
+$ cp .env_template .env
+```
 
-- Move to the project folder 
+then, starts containers:
+```
+$ docker-compose up -d
+```
+---
+To stop the containers:
+```
+$ docker-compose stop
+```
 
-  ```
-  cd whook
-  ```
+To stop and remove the containers:
+```
+$ docker-compose down
+```
 
-- Copy the .env file:
 
-  ```
-  - cp .env_template .env
-  ```
+### Test the application
+**1) `GET` method**
+```
+curl http://localhost:8088/api/get?param1=test&param2=2&param3=hello
+```
 
-- Create the log folder
+**2) `POST` method**
+```
+curl --header "Content-Type: application/json" --request POST --data '{"key1": {"key2": 1, "key3": "test"}, "key4":"xyz","key5":"xyz"}' http://localhost:8088/api/post
+```
 
-  ```
-  - mkdir -m 777 log
-  ```
+Check the lines into the log file: `./log/whook.log`
 
-  *Note: If you want to change the log folder path, You need to modify the following line in the file * `docker-compose.yml`:
+## Swagger spec (Work In Progess)
+For swagger documentation check:
+- http://localhost:8088/swagger-ui/dist/
 
-  ```
-  - ./log:/usr/src/app/log
-  ```
 
-- Build the images and start the containers:
+# Author
+(c) 2019 Sergio Bruni sergio.bruni[at]ingv.it
 
-  - `docker-compose build`
-  - `docker-compose up`
-  - *OR* just run one command: `docker-compose -f docker-compose.yml up --build`
+(c) 2019 Valentino Lauciani valentino.lauciani[at]ingv.it
 
-- Do some test requests:
-
-  ```
-  curl http://localhost:8088/api/whook?param1=test\&param2=2\&param3=hello
-  ```
-
-  ```
-  curl --header "Content-Type: application/json" --request POST --data '{"key1": {"key2": 1, "key3": "test"}, "key4":"xyz","key5":"xyz"}' http://localhost:8088/api/whook
-  ```
-
-- See the echo printed on the log file: `<project-root>/log/whook.log`
-
-- For swagger documentation check:
-
-  ```
-  http://localhost:8088/swagger-ui/dist/
-  ```
-
-  
-
+Istituto Nazionale di Geofisica e Vulcanologia, Italia
