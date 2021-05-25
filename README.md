@@ -17,12 +17,11 @@
 
 # 1. Introduction #
 
-This project implement a web hook that exposes two generic web services, respectively: GET and POST.
+This project implement a web hook that exposes two generic web services, respectively: `GET` and `POST`.
+- The first one echoes, on the stdout and on a log file (`<project-root>/log/whook.log`), the received parameters, as couples of `name=value`
+- The second one echoes, on the stdout and on the log, file the received `json data`
 
-The first one echoes, on the stdout and on a log file (`<project-root>/log/whook.log`), the received parameters, as couples of `name=value`
-
-The second one echoes, on the stdout and on the log, file the received `json data`
-
+Main features:
 - The project structure supports multiple development environments with the usage of `.env` variable and `docker.compose.yml` files.
 - Designed for organizing large scale application structure. With the usage of `Blueprints`, `application factory` and different configs.
 - Reverse proxy using `nginx`.
@@ -75,37 +74,23 @@ The request from an external user hits the *nginx* web server on port 8088 (conf
 
 ## Usage
 
-**NOTE**: Make sure you have Docker
+**NOTE**: Make sure you have `docker` installed
 
-- Clone this repository: 
+Clone the git repository: 
+```
+$ git clone https://gitlab.rm.ingv.it/ingv-virgo/whook
+$ cd whook
+```
 
-  ```
-  git clone https://gitlab.rm.ingv.it/uf-so/whook
-  ```
+Copy the `.env` file:
+```
+$ cp .env_template .env
+```
 
-- Move to the project folder 
-
-  ```
-  cd whook
-  ```
-
-- Copy the .env file:
-
-  ```
-  - cp .env_template .env
-  ```
-
-- Create the log folder
-
-  ```
-  - mkdir -m 777 log
-  ```
-
-  *Note: If you want to change the log folder path, You need to modify the following line in the file * `docker-compose.yml`:
-
-  ```
-  - ./log:/usr/src/app/log
-  ```
+**Note**: If you want to change the log folder path, You need to modify the following line in the file `docker-compose.yml`:
+```
+./log:/usr/src/app/log
+```
 
 - Build the images and start the containers:
 
