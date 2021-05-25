@@ -1,3 +1,27 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [whook](#whook)
+  - [Introduction](#introduction)
+  - [Project Components (Directory Structure)](#project-components-directory-structure)
+    - [client](#client)
+    - [nginx](#nginx)
+    - [server](#server)
+    - [Environment variable](#environment-variable)
+    - [`docker-compose.yml`](#docker-composeyml)
+  - [Architecture](#architecture)
+    - [Working](#working)
+  - [Usage](#usage)
+    - [Clone the git repository](#clone-the-git-repository)
+    - [Build docker images](#build-docker-images)
+    - [Run containers](#run-containers)
+    - [Test the application](#test-the-application)
+  - [Swagger spec (Work In Progess)](#swagger-spec-work-in-progess)
+- [Author](#author)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # whook
 
 ## Introduction
@@ -85,12 +109,12 @@ $ docker-compose down
 ### Test the application
 **1) `GET` method**
 ```
-curl http://localhost:8088/api/get?param1=test&param2=2&param3=hello
+curl http://localhost:8088/api/whook?param1=test&param2=2&param3=hello
 ```
 
 **2) `POST` method**
 ```
-curl --header "Content-Type: application/json" --request POST --data '{"key1": {"key2": 1, "key3": "test"}, "key4":"xyz","key5":"xyz"}' http://localhost:8088/api/post
+curl --header "Content-Type: application/json" --request POST --data '{"key1": {"key2": 1, "key3": "test"}, "key4":"xyz","key5":"xyz"}' http://localhost:8088/api/whook
 ```
 
 Check the lines into the log file: `./log/whook.log`
