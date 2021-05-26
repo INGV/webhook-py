@@ -109,7 +109,7 @@ $ docker-compose down
 ### Test the application
 **1) `GET` method**
 ```
-curl http://localhost:8088/api/whook?param1=test&param2=2&param3=hello
+curl "http://localhost:8088/api/whook?param1=test&param2=2&param3=hello"
 ```
 
 **2) `POST` method**
