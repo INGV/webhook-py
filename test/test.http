@@ -1,4 +1,4 @@
-POST http://localhost:4300/api/whook
+POST http://localhost:4300/api/whook?pippo=4&foo=bar
 Content-Type: application/json
 
 {
@@ -18,9 +18,8 @@ GET http://localhost:4300/api/whook?foo=bar&hello=ciao
 GET http://localhost:4300/api/whook
 
 ###
-POST http://localhost:4300/api/whook?a=b
-Content-Type: application/json?foo=bar
+POST http://localhost:4300/api/whook
 
-{
- "a": 1
-}
+###
+POST http://localhost:4300/api/whook?foo=bar&pippo=1&pluto=caio
+

@@ -38,17 +38,19 @@ class Queries(object):
           "detail": "The service is working properly"
         }
 
-
-        msg = 'POST METHOD RECEIVED. BODY IS: \n' + \
-              json.dumps(body, indent=4, sort_keys=True)
+        msg = 'POST METHOD RECEIVED'
         logger.info(msg)
+        if body:
+            msg = 'JSON BODY IS: \n' + \
+                  json.dumps(body, indent=4, sort_keys=True)
+            logger.info(msg)
 
         if args:
             params = []
             for key, value in args.items():
                 params.append(f'{key}={value}')
 
-            msg = 'ALSO THE FOLLOWING PARAMS WERE RECEIVED: ' + '; '.join(params)
+            msg = 'PARAMS ARE: ' + '; '.join(params)
             logger.info(msg)
 
         return json.dumps(return_struct), http_status_code.HTTP_200_OK

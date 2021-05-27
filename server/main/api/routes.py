@@ -27,7 +27,9 @@ def get():
 
 @route.route('/api/whook', methods=["POST"])
 def post():
-    body = request.get_json(force=True)
+    body = None
+    if request.data:
+        body = request.get_json(force=True)
     result_struct, status = queries.post_webhook(request.args, body)
     result = (Response(result_struct, content_type='application/json'), status)
     return result
