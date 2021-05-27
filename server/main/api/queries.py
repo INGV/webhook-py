@@ -31,14 +31,24 @@ class Queries(object):
         return json.dumps(return_struct), http_status_code.HTTP_200_OK
 
 
-    def post_webhook(self, body):
+    def post_webhook(self, args, body):
         return_struct = {
           "status": http_status_code.HTTP_200_OK,
           "title": "OK",
           "detail": "The service is working properly"
         }
 
+
         msg = 'POST METHOD RECEIVED. BODY IS: \n' + \
               json.dumps(body, indent=4, sort_keys=True)
         logger.info(msg)
+
+        if args:
+            params = []
+            for key, value in args.items():
+                params.append(f'{key}={value}')
+
+            msg = 'ALSO THE FOLLOWING PARAMS WERE RECEIVED: ' + '; '.join(params)
+            logger.info(msg)
+
         return json.dumps(return_struct), http_status_code.HTTP_200_OK

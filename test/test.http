@@ -1,4 +1,4 @@
-POST http://localhost:8088/api/whook
+POST http://localhost:4300/api/whook
 Content-Type: application/json
 
 {
@@ -12,5 +12,15 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:8088/api/whook?foo=bar&hello=ciao
+GET http://localhost:4300/api/whook?foo=bar&hello=ciao
 
+###
+GET http://localhost:4300/api/whook
+
+###
+POST http://localhost:4300/api/whook?a=b
+Content-Type: application/json?foo=bar
+
+{
+ "a": 1
+}
