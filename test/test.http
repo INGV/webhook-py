@@ -23,3 +23,17 @@ POST http://localhost:4300/api/whook
 ###
 POST http://localhost:4300/api/whook?foo=bar&pippo=1&pluto=caio
 
+
+###
+POST http://localhost:4300/api/whook?foo=bar&pippo=1&pluto=caio
+Content-Type: application/x-www-form-urlencoded
+
+ciao=helo&pippo=1
+
+###
+POST http://localhost:4300/api/whook
+###
+POST http://localhost:4300/api/whook?foo=bar&pippo=1&pluto=caio
+Content-Type: application/x-www-form-urlencoded
+
+ciao=helo&pippo=1

@@ -31,7 +31,7 @@ class Queries(object):
         return json.dumps(return_struct), http_status_code.HTTP_200_OK
 
 
-    def post_webhook(self, args, body):
+    def post_webhook(self, args, form, body):
         return_struct = {
           "status": http_status_code.HTTP_200_OK,
           "title": "OK",
@@ -41,7 +41,7 @@ class Queries(object):
         msg = 'POST METHOD RECEIVED'
         logger.info(msg)
         if body:
-            msg = 'JSON BODY IS: \n' + \
+            msg = 'JSON: \n' + \
                   json.dumps(body, indent=4, sort_keys=True)
             logger.info(msg)
 
@@ -50,7 +50,15 @@ class Queries(object):
             for key, value in args.items():
                 params.append(f'{key}={value}')
 
-            msg = 'PARAMS ARE: ' + '; '.join(params)
+            msg = 'QUERY STRING: ' + '; '.join(params)
+            logger.info(msg)
+
+        if form:
+            params = []
+            for key, value in form.items():
+                params.append(f'{key}={value}')
+
+            msg = 'FORMS: ' + '; '.join(params)
             logger.info(msg)
 
         return json.dumps(return_struct), http_status_code.HTTP_200_OK

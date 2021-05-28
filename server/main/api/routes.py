@@ -27,9 +27,16 @@ def get():
 
 @route.route('/api/whook', methods=["POST"])
 def post():
+    '''
+        I've studied here: https://pythonise.com/series/learning-flask/the-flask-request-object
+    '''
+    #c = request.content_type
+    # v = request.values
+    # a = request.args
+    # f = request.form
     body = None
     if request.data:
-        body = request.get_json(force=True)
-    result_struct, status = queries.post_webhook(request.args, body)
+        body = request.get_json(force=False)
+    result_struct, status = queries.post_webhook(request.args, request.form, body)
     result = (Response(result_struct, content_type='application/json'), status)
     return result
