@@ -109,12 +109,16 @@ $ docker-compose down
 ### Test the application
 **1) `GET` method**
 ```
-curl "http://localhost:8088/api/whook?param1=test&param2=2&param3=hello"
+$ curl "http://localhost:8088/api/whook?param1=test&param2=2&param3=hello"
 ```
 
 **2) `POST` method**
 ```
-curl --header "Content-Type: application/json" --request POST --data '{"key1": {"key2": 1, "key3": "test"}, "key4":"xyz","key5":"xyz"}' http://localhost:8088/api/whook
+$curl --header "Content-Type: application/json" --request POST --data '{"key1": {"key2": 1, "key3": "test"}, "key4":"xyz","key5":"xyz"}' http://localhost:8088/api/whook
+
+$ curl -X POST --data "param1=test&param2=2&param3=hello" http://localhost:8088/api/whook
+
+$ curl --request POST --data "param1=test&param2=2&param3=hello" http://localhost:8088/api/whook
 ```
 
 Check the lines into the log file: `./log/whook.log`
